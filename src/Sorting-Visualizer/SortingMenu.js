@@ -95,7 +95,7 @@ function SortingMenu() {
       
         setArray(prevArray => unsortedArray);
 
-        //const arrayBars = document.getElementsByClassName('array-bar');
+        const arrayBars = document.getElementsByClassName('array-bar');
 
         /*Tested but didnt seem to fix issue
         if (arrayType === "Reverse Array") {
@@ -104,10 +104,10 @@ function SortingMenu() {
           }   
         }
         */
-       /*
+       
         for (var i=0; i < array.length; i++){
           arrayBars[i].style.backgroundColor = ORIGINALCOLOR;
-        }*/   
+        } 
       }
     }
 
