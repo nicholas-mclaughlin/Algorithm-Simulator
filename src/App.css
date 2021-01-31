@@ -1,0 +1,104 @@
+html, body { height: 100%; width: 100%; margin: 0; }
+
+#root, .App {
+  height: 100%;
+}
+
+.Sorting {
+  height: 100%;
+  display: grid;
+  grid-template-rows: 15% 85%;
+}
+
+.SortingMenu{
+  height: 100%;
+  display: grid;
+  grid-template-columns: 18% 7% 8% 9% 9% 8% 15% 10%;
+  grid-template-rows: 100%;
+  background-color: rgb(107, 197, 197);
+}
+
+#sizecontainer {
+  display: grid;
+  grid-template-rows: 50% 50%;
+}
+
+#sizeoutput {
+  text-align: center;
+}
+
+#speedcontainer {
+  display: grid;
+  grid-template-rows: 50% 50%;
+}
+
+#speedoutput {
+  text-align: center;
+}
+
+h3 {
+  font-size: 1.4vw;
+  padding: 0;
+  margin: 0;
+}
+
+.SortingVisuals {
+  height: 100%;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.Nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 15px;
+}
+
+.nav-links {
+  list-style: none;
+}
+
+.array-bar {
+  width: 1%;
+  display: inline-block;
+  margin: 0 1px;
+}
+
+
+
+
+
+
+
+.Pathfinding {
+  height: 100%;
+  display: grid;
+  grid-template-rows: 15% 85%;
+}
+
+
+.PathfindingMenu{
+  display: grid;
+  grid-template-columns: 18% 7% 7% 9% 12% 8% 8% 8% 8% 8%;
+  grid-template-rows: 100%;
+  background-color: rgb(135, 110, 163);
+}
+
+.PathfindingVisuals {
+  height: 98%;
+  width: 99%;
+  border: thick solid black;
+  display: grid;
+  grid-template-columns: 2% 2% 2% 2% 2% 2% 2% 2% 2% 2% 2% 2% 2% 2% 2% 2% 2% 2% 2% 2% 2% 2% 2% 2% 2%
+  2% 2% 2% 2% 2% 2% 2% 2% 2% 2% 2% 2% 2% 2% 2% 2% 2% 2% 2% 2% 2% 2% 2% 2% 2%;
+  grid-template-rows: 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5%;
+}
+
+.array-square {
+  border: 0.5px solid rgb(136, 136, 136);
+  height: 100%;
+  width: 100%;
+}
