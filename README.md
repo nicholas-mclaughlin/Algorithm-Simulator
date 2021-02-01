@@ -1,3 +1,8 @@
+# Algorithm-Simulator
+
+A JavaScript project using the React library which visualizes different sorting and path‑finding algorithms. Currently can simulate Bubble Sort, Merge
+Sort, Dijkstra’s Algorithm and Breadth‑First Search. Fixing some issues with Depth-First Search and in the progress of A* search. Project is not yet too visually appealing and has not been thoroughly commented on yet.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
