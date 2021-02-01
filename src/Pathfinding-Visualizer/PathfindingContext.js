@@ -34,6 +34,7 @@ export const PathfindingProvider = props => {
     const [newStart, setNewStart] = useState(false);
     const [newEnd, setNewEnd] = useState(false);
     const [newWall, setNewWall] = useState(false);
+    const [mousePressed, setMousePressed] = useState(false);
 
     return (
         <PathfindingContext.Provider 
@@ -42,7 +43,7 @@ export const PathfindingProvider = props => {
             startRowVar: [startRow, setStartRow], startColumnVar: [startColumn, setStartColumn], 
             endRowVar: [endRow, setEndRow], endColumnVar: [endColumn, setEndColumn],
             newStartVar: [newStart, setNewStart], newEndVar: [newEnd, setNewEnd],
-            newEndWall: [newWall, setNewWall]}}>
+            newEndWall: [newWall, setNewWall], mousePressedVar: [mousePressed, setMousePressed]}}>
         {props.children}
         </PathfindingContext.Provider>
         );

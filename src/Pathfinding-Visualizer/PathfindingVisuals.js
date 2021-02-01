@@ -5,7 +5,7 @@ import {PathfindingContext} from './PathfindingContext'
 function PathfindingVisuals() {
 
   const {arrayVar, startVar, algVar, speedVar, startRowVar, startColumnVar, endRowVar, 
-    endColumnVar, newStartVar, newEndVar, newEndWall} = useContext(PathfindingContext);
+    endColumnVar, newStartVar, newEndVar, newEndWall, mousePressedVar} = useContext(PathfindingContext);
   const [array, setArray] = arrayVar;
   const [start, setStart] = startVar;
   const [Algorithm, setAlgorithm] = algVar;
@@ -17,7 +17,16 @@ function PathfindingVisuals() {
   const [newStart, setNewStart] = newStartVar;
   const [newEnd, setNewEnd] = newEndVar;
   const [newWall, setNewWall] = newEndWall;
+  const [mousePressed, setMousePressed] = mousePressedVar;
 
+
+  const mousePress = () => {
+    setMousePressed(true);
+  }
+
+  const mouseUp = () => {
+    setMousePressed(false);
+  }
 
   const getColor = value => {
     return  value == 1 ? 'Black'
@@ -28,30 +37,32 @@ function PathfindingVisuals() {
   }
 
   const newNode = (rowidx, idx) => {
-    if (newStart) {
-      const newArray = array.slice();
-      newArray[startRow][startColumn] = 0;
-      setStartRow(rowidx);
-      setStartColumn(idx);
-      newArray[rowidx][idx] = 2;
-      setArray(prevArray => newArray);
-    }
-    else if (newEnd) {
-      const newArray = array.slice();
-      newArray[endRow][endColumn] = 0;
-      setEndRow(rowidx);
-      setEndColumn(idx);
-      newArray[rowidx][idx] = 3;
-      setArray(prevArray => newArray);
-    }
+    if (mousePressed) {
+      if (newStart) {
+        const newArray = array.slice();
+        newArray[startRow][startColumn] = 0;
+        setStartRow(rowidx);
+        setStartColumn(idx);
+        newArray[rowidx][idx] = 2;
+        setArray(prevArray => newArray);
+      }
+      else if (newEnd) {
+        const newArray = array.slice();
+        newArray[endRow][endColumn] = 0;
+        setEndRow(rowidx);
+        setEndColumn(idx);
+        newArray[rowidx][idx] = 3;
+        setArray(prevArray => newArray);
+      }
 
-    else if (newWall) {
-      const newArray = array.slice();
-      if (newArray[rowidx][idx] == 0)
-        newArray[rowidx][idx] = 1;
-      else if (newArray[rowidx][idx] == 1)
-        newArray[rowidx][idx] = 0;
-      setArray(prevArray => newArray);
+      else if (newWall) {
+        const newArray = array.slice();
+        if (newArray[rowidx][idx] == 0)
+          newArray[rowidx][idx] = 1;
+        else if (newArray[rowidx][idx] == 1)
+          newArray[rowidx][idx] = 0;
+        setArray(prevArray => newArray);
+      }
     }
   }
 
@@ -59,7 +70,8 @@ function PathfindingVisuals() {
     <div className="PathfindingVisuals">
       {array.map((row, rowidx) => ( 
           row.map((value, idx) => (
-              <button id = {`square ${rowidx} ${idx}`} className = "array-square" key = {idx} onClick={() => newNode(rowidx, idx)}
+              <button id = {`square ${rowidx} ${idx}`} className = "array-square" key = {idx} 
+                onMouseDown = {mousePress} onMouseUp = {mouseUp} onMouseEnter={() => newNode(rowidx, idx)}
                 style = {{backgroundColor: `${getColor(value)}`}}
               ></button>
           ))
