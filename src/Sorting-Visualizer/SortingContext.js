@@ -4,6 +4,7 @@ export const SortingContext = createContext();
 
 export const SortingProvider = props => {
 
+    //Provides the context for the entire sorting visualizer
     const [isSorted, setIsSorted] = useState(true);
     const [array, setArray] = useState([]);
     const [arrayType, setArrayType] = useState('Random Array');

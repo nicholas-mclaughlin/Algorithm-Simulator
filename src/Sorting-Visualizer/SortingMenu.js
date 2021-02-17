@@ -6,12 +6,12 @@ import {bubbleAni, mergeAni} from './SortingAnimations';
 
 function SortingMenu() {
 
-    const {isSortedVar, arrayVar, arrayTypeVar, startVar, algVar, sizeVar, 
+    // Gets the context needed from the SortingContext
+    const {isSortedVar, arrayVar, arrayTypeVar, algVar, sizeVar, 
       speedVar, visualTypeVar, animationSpeedVar, runningVar} = useContext(SortingContext);
     const [isSorted, setIsSorted] = isSortedVar;
     const [array, setArray] = arrayVar;
     const [arrayType, setArrayType] = arrayTypeVar;
-    const [start, setStart] = startVar;
     const [Algorithm, setAlgorithm] = algVar;
     const [size, setSize] = sizeVar;
     const [speed, setSpeed] = speedVar;
@@ -23,7 +23,6 @@ function SortingMenu() {
     const SWAPCOLOR = "Green";
     const COMPARINGCOLOR = "Red";
     const SORTEDSPEED = 10;
-    //const SORTEDSPEED = 75;
 
     const changeAlg = e => {
       setAlgorithm(e.target.value);
@@ -56,6 +55,8 @@ function SortingMenu() {
       setVisualType(e.target.value);
     }
 
+    // Creates a new array if the visualization is not currently running
+    // Creates a different type of array depending on what arrayType is set to.
     const newArray = () => {
       if (!running) {
         setIsSorted(false);
@@ -111,18 +112,13 @@ function SortingMenu() {
       }
     }
 
-    
+    // Gets the animations for bubble sort from SortingAnimations.js
+    // then visualizes it using loops and timeouts.
+    // Speed of visualization depends on what animationSpeed is set to.
     const bubbleSort = () => {
       const animations = bubbleAni(array);
       const bars = document.getElementsByClassName('array-bar');
       var time = 1;
-      /*
-      for (var i=0; i<animations.pairs.length; i++){
-        console.log(animations.pairs[i]);
-        console.log(animations.heights[i]);
-      }
-      console.log(animations.swap); 
-      */
       
       for (var i=0; i<animations.pairs.length; i++){
 
@@ -173,6 +169,10 @@ function SortingMenu() {
       time++
     }
     
+
+    // Gets the animations for merge sort from SortingAnimations.js
+    // then visualizes it using loops and timeouts.
+    // Speed of visualization depends on what animationSpeed is set to.
     const mergeSort = () => {
       const animations = mergeAni(array);
       const bars = document.getElementsByClassName('array-bar');
@@ -239,7 +239,8 @@ function SortingMenu() {
     }
 
 
-
+    // If the array isn't already sorted and the visualization
+    // isn't already started then, start visualization
     const startVis = () => {
       if (!isSorted && !running) {
         setRunning(true);
@@ -250,11 +251,12 @@ function SortingMenu() {
       }
     }
 
+    // The rendering of the menu at the top
     return (
       <div className="SortingMenu">
         <Nav/>
         <button onClick={startVis}>Start!</button>
-
+        
         <select value={visualType} onChange={changeVisualType}>
           <option value="Bars">Bars</option>
           <option value="Scatter Plot">Scatter Plot</option>

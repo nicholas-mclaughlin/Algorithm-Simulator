@@ -4,7 +4,8 @@ import { SortingProvider } from './SortingContext';
 import SortingVisuals from './SortingVisuals';
 
 
-
+// The entire sorting algorithm page
+// Splits into components Sorting Menu and Sorting Visuals
 function Sorting() {
   return (
     <SortingProvider>
