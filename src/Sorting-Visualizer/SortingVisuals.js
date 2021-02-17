@@ -1,11 +1,9 @@
 import React, { useState, useContext } from 'react';
 import {SortingContext} from './SortingContext'
 
-
-
-
 function SortingVisuals() {
 
+    // Gets the context needed from the SortingContext
     const {arrayVar} = useContext(SortingContext);
     const [array, setArray] = arrayVar;
 

@@ -1,3 +1,5 @@
+// Returns an array which contains a very basic maze.
+// Probably made this in the least efficient possible way oops :(
 export const createMazeA = (array, startRow, endRow, startColumn, endColumn) => {
     var newArray = new Array(20);
     for (var i = 0; i < newArray.length; i++) {
@@ -116,8 +118,8 @@ export const createMazeA = (array, startRow, endRow, startColumn, endColumn) => 
     return newArray
   }
 
-  
-
+  // Creates a maze where walls are places in random locations except where the start
+  // and end node are.
   export const createRandomMaze = (array, startRow, endRow, startColumn, endColumn) => {
     const newArray = array.slice();
       for (var i=0; i<array.length; i++) {

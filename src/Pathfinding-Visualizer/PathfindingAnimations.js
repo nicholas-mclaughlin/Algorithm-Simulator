@@ -1,3 +1,11 @@
+// Gets the moves to visualize breadth-first search
+// Returns a object called animation which has the indices of on
+// the maze it has been searched and will be animated, the previous
+// square of the current searched square so that we can use this to
+// find the shortest path, and the boolean attribute endReached, so
+// that we can know when to stop the helper function getBFSAnimation
+// and to know if we should find the shortest path since we know that
+// the end node has been found.
 export const BFSAnimations = (array, startRow, startColumn) => {
     var grid = new Array(20);
     for (var i = 0; i < grid.length; i++) {
@@ -19,6 +27,10 @@ export const BFSAnimations = (array, startRow, startColumn) => {
     return animation;
 }
 
+// A helper function for the breadth-first search animation.
+// Uses a queue to perform BFS where while the queue is not empty,
+// each adjacent node is pushed onto the queue and then the front
+// of the queue is searched.
 const getBFSAnimations = (animation, grid, queue, maxRow, maxColumn) => {
     while (queue.length != 0) {
         var current = queue.shift();
@@ -74,6 +86,15 @@ const getBFSAnimations = (animation, grid, queue, maxRow, maxColumn) => {
     }
 }
 
+// Currently not working properly
+// Gets the moves to visualize depth-first search
+// Returns a object called animation which has the indices of on
+// the maze it has been searched and will be animated, the previous
+// square of the current searched square so that we can use this to
+// find the shortest path, and the boolean attribute endReached, so
+// that we can know when to stop the helper function getDFSAnimation
+// and to know if we should find the shortest path since we know that
+// the end node has been found.
 export const DFSAnimations = (array, startRow, startColumn) => {
     var grid = new Array(20);
     for (var i = 0; i < grid.length; i++) {
@@ -94,6 +115,9 @@ export const DFSAnimations = (array, startRow, startColumn) => {
     return animation;
 }
 
+// A helper function for the depth-first search animation.
+// Uses recursion to perform DFS, where it recursively searches each adjacent node until
+// the end has been reached or there are no adjacent nodes to the current node.
 const getDFSAnimations = (animation, grid, row, col, maxRow, maxColumn, endReached) => {
     if (!endReached && row-1 >= 0 && grid[row-1][col] == 0) {
         animation.indices.push([row-1, col]);

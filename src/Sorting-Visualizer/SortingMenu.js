@@ -22,7 +22,6 @@ function SortingMenu() {
     const ORIGINALCOLOR = "Blue";
     const SWAPCOLOR = "Green";
     const COMPARINGCOLOR = "Red";
-    const SORTEDSPEED = 10;
 
     const changeAlg = e => {
       setAlgorithm(e.target.value);
@@ -251,7 +250,7 @@ function SortingMenu() {
       }
     }
 
-    // The rendering of the menu at the top
+    // The rendering of the menu at the top of the window
     return (
       <div className="SortingMenu">
         <Nav/>

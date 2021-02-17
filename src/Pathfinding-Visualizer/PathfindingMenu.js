@@ -6,13 +6,12 @@ import {BFSAnimations, DFSAnimations} from './PathfindingAnimations';
 
 function PathfindingMenu() {
 
-    const {arrayVar, startVar, algVar, mazeTypeVar, speedVar, startRowVar, startColumnVar, endRowVar, 
+    // Gets the context needed from the PathfindingContext
+    const {arrayVar, algVar, mazeTypeVar, startRowVar, startColumnVar, endRowVar, 
           endColumnVar, newStartVar, newEndVar, newEndWall} = useContext(PathfindingContext);
     const [array, setArray] = arrayVar;
-    const [start, setStart] = startVar;
     const [Algorithm, setAlgorithm] = algVar;
     const [MazeType, setMazeType] = mazeTypeVar;
-    const [speed, setSpeed] = speedVar;  
     const [startRow, setStartRow] = startRowVar 
     const [startColumn, setStartColumn] = startColumnVar
     const [endRow, setEndRow] = endRowVar;
@@ -21,7 +20,9 @@ function PathfindingMenu() {
     const [newEnd, setNewEnd] = newEndVar;
     const [newWall, setNewWall] = newEndWall;
 
+    // Colors of squares that have been searched
     const FILLCOLOR = "Aqua";
+    // Colors of the squares in the shortest path
     const PATHCOLOR = "Yellow"
     const ANIMATIONSPEED = 10;
 
@@ -29,6 +30,8 @@ function PathfindingMenu() {
     setAlgorithm(e.target.value);
   }
 
+  // Creates a new grid.
+  // Makes every single square except the current start and end nodes white.
   const newGrid = () => {
     var grid = new Array(20);
     for (var i = 0; i < grid.length; i++) {
@@ -60,6 +63,7 @@ function PathfindingMenu() {
       setArray(prevArray => createRandomMaze(array, startRow, endRow, startColumn, endColumn));
   }
 
+  // Gets the shortest path using the prevNode attribute from the animation of the pathfinding algo
   const getShortestPath = seqs => {
     //console.log(seqs.prevSquare);
     var path = [];
@@ -82,6 +86,12 @@ function PathfindingMenu() {
     return path;
   }
 
+  // Runs the algorithm. 
+  // Using the animations from PathfindingAnimations.js, it uses a for loop and timeouts
+  // to visualize the algorithm.
+  // Calls each square by their unique id and then changes their background color, to
+  // to show that it has been searched.
+  // If the end node is reached then the shortestpath function is called.
   const runAlgorithm = animations => {
     var time = 1;
 
@@ -113,8 +123,8 @@ function PathfindingMenu() {
     }
   }
 
-  
-
+  // Depending on the algorithm, we get its animation from PathfindingAnimations.js
+  // and then we call the runAlgorithm function with animation as the argument.
   const findPath = () => {
     if (Algorithm == "BFS") {
       const animations = BFSAnimations(array, startRow, startColumn);
@@ -156,9 +166,10 @@ function PathfindingMenu() {
       setNewStart(false);
     if (newEnd)
       setNewEnd(false);
-    console.log(array);
+    //console.log(array);
   }
 
+    // The rendering of the menu at the top of the window
     return (
       <div className="PathfindingMenu">
         <Nav/>
