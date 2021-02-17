@@ -1,6 +1,12 @@
-html, body { height: 100%; width: 100%; margin: 0; }
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
 
-#root, .App {
+#root,
+.App {
   height: 100%;
 }
 
@@ -10,7 +16,7 @@ html, body { height: 100%; width: 100%; margin: 0; }
   grid-template-rows: 15% 85%;
 }
 
-.SortingMenu{
+.SortingMenu {
   height: 100%;
   display: grid;
   grid-template-columns: 18% 7% 8% 9% 9% 8% 15% 10%;
@@ -67,20 +73,13 @@ h3 {
   margin: 0 1px;
 }
 
-
-
-
-
-
-
 .Pathfinding {
   height: 100%;
   display: grid;
   grid-template-rows: 15% 85%;
 }
 
-
-.PathfindingMenu{
+.PathfindingMenu {
   display: grid;
   grid-template-columns: 18% 7% 7% 9% 12% 8% 8% 8% 8% 8%;
   grid-template-rows: 100%;
@@ -92,9 +91,8 @@ h3 {
   width: 99%;
   border: thick solid black;
   display: grid;
-  grid-template-columns: 2% 2% 2% 2% 2% 2% 2% 2% 2% 2% 2% 2% 2% 2% 2% 2% 2% 2% 2% 2% 2% 2% 2% 2% 2%
-  2% 2% 2% 2% 2% 2% 2% 2% 2% 2% 2% 2% 2% 2% 2% 2% 2% 2% 2% 2% 2% 2% 2% 2% 2%;
-  grid-template-rows: 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5%;
+  grid-template-columns: repeat(50, 2%);
+  grid-template-rows: repeat(20, 5%);
 }
 
 .array-square {
